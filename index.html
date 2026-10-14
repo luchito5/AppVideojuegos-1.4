@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppVideojuegos</title>
+    <!-- PWA: manifest y metadatos para instalación -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AppVideojuegos</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2 id="titulo-form">Publicar una recomendación</h2>
+            <form id="form-recomendacion">
+                <!-- Si juego-id está vacío: INSERT (crear). Si tiene valor: UPDATE (editar) -->
+                <input type="hidden" id="juego-id" value="">
+                <div>
+                    <label for="titulo">Título</label>
+                    <input type="text" name="titulo" id="titulo" placeholder="Ej: The Legend of Zelda: Breath of the Wild" required>
+                </div>
+
+                <div class="fila">
+                    <div>
+                        <label for="genero">Género</label>
+                        <select name="genero" id="genero" required>
+                            <option value="" disabled selected>Seleccioná un género</option>
+                            <option value="accion">Acción</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="rpg">RPG</option>
+                            <option value="estrategia">Estrategia</option>
+                            <option value="deportes">Deportes</option>
+                            <option value="simulacion">Simulación</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="puntuacion">Puntuación (1-10)</label>
+                        <input type="number" name="puntuacion" id="puntuacion" min="1" max="10" step="1" placeholder="Ej: 9" required>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="portada-file">Portada del juego</label>
+                    <input type="file" id="portada-file" name="portada" accept="image/*" required>
+                </div>
+
+                <div>
+                    <label for="resenia">¿Por qué lo recomendás?</label>
+                    <textarea name="resenia" id="resenia" placeholder="Contaste por qué te gustó, qué lo hace especial, a quién se lo recomendarías..." required></textarea>
+                </div>
+
+                <div>
+                    <label for="plataforma">Plataforma</label>
+                    <select name="plataforma" id="plataforma" required>
+                        <option value="" disabled selected>Seleccioná una plataforma</option>
+                        <option value="pc">PC</option>
+                        <option value="playstation">PlayStation</option>
+                        <option value="xbox">Xbox</option>
+                        <option value="nintendo-switch">Nintendo Switch</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="multi">Multiplataforma</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="anio">Año de lanzamiento</label>
+                    <input type="date" name="anio" id="anio">
+                </div>
+
+                <div>
+                    <label for="terminado">¿Lo terminaste?</label>
+                    <input type="checkbox" name="terminado" id="terminado">
+                </div>
+
+                <button type="submit">Publicar recomendación</button>
+                <p id="mensaje" role="status"></p>
+            </form>
+        </section>
+
+        <section class="seccion-catalogo">
+            <h2>Juegos recomendados</h2>
+            <div id="grid-juegos" class="grid-tarjetas"></div>
+            <!-- Las tarjetas las genera JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p>AppVideojuegos</p>
+    </footer>
+    <script src="supabaseClient.js"></script>
+    <script src="main2.js"></script>
+</body>
+</html>

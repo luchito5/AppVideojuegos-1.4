@@ -1,0 +1,266 @@
+:root {
+    --fondo: #1a1a2e;
+    --tarjeta: #25253e;
+    --principal: #8b5cf6;
+    --texto: #e2e2e2;
+    --texto-secundario: #a0a0b8;
+    --borde: #3a3a55;
+    --radio: 8px;
+    --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-ok: #34d399;
+    --color-error: #f87171;
+    --color-editar: #fbbf24;
+    --color-eliminar: var(--color-error);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--fuente);
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--principal);
+    font-size: 2rem;
+}
+
+main {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    color: var(--texto);
+}
+
+form div {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    color: var(--texto);
+    font-family: var(--fuente);
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--principal);
+    outline-offset: 1px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--principal);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--principal);
+    color: var(--texto);
+    border: none;
+    border-radius: var(--radio);
+    font-size: 1rem;
+    font-family: var(--fuente);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+#mensaje:empty {
+    display: none;
+}
+
+#mensaje {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: var(--radio);
+    font-size: 0.95rem;
+}
+
+.mensaje-ok {
+    color: var(--color-ok);
+    background-color: color-mix(in srgb, var(--color-ok) 12%, transparent);
+    border: 1px solid var(--color-ok);
+}
+
+.mensaje-error {
+    color: var(--color-error);
+    background-color: color-mix(in srgb, var(--color-error) 12%, transparent);
+    border: 1px solid var(--color-error);
+}
+
+footer {
+    text-align: center;
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .fila {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card-juego {
+    background-color: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-juego img,
+.sin-portada {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.sin-portada {
+    background-color: var(--borde);
+    color: var(--texto-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fila-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-genero {
+    background-color: var(--principal);
+    color: var(--texto);
+    font-size: 0.8rem;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+.score {
+    font-weight: bold;
+}
+
+.card-titulo {
+    font-size: 1.1rem;
+}
+
+.card-resenia {
+    color: var(--texto-secundario);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-extra {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .grid-tarjetas {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+    border-top: 1px dashed var(--borde);
+    padding-top: 12px;
+}
+
+.btn-action {
+    flex: 1;
+    width: auto;
+    margin-top: 0;
+    padding: 8px;
+    border: none;
+    border-radius: var(--radio);
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1a1a2e;
+}
+
+.btn-edit {
+    background-color: var(--color-editar);
+}
+
+.btn-delete {
+    background-color: var(--color-eliminar);
+}

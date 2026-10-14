@@ -1,0 +1,21 @@
+{
+  "short_name": "AppVideojuegos",
+  "name": "AppVideojuegos",
+  "icons": [
+    {
+      "src": "icons/icono-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/icono-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#1a1a2e",
+  "theme_color": "#8b5cf6",
+  "display": "standalone",
+  "orientation": "portrait"
+}
